@@ -14,11 +14,11 @@ describe('directoryTree', () => {
 		expect(tree).to.be.an('object');
 	});
 
-	it('should list the children in a directory', () => {
+	it('should list the childNodes in a directory', () => {
 		const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
 
 		// 4 including the empty `some_dir_2`.
-		expect(tree.children.length).to.equal(4);
+		expect(tree.childNodes.length).to.equal(4);
 	});
 
 	it('should execute a callback function for each file with no specified extensions', () => {
@@ -53,7 +53,7 @@ describe('directoryTree', () => {
 		expect(callback_executed_times).to.equal(number_of_files);
 	});
 
-	it('should display the size of a directory (summing up the children)', () => {
+	it('should display the size of a directory (summing up the childNodes)', () => {
 		const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
 		expect(tree.size).to.be.above(11000);
 	});
@@ -91,7 +91,7 @@ describe('directoryTree', () => {
 
 	it('should include attributes', () => {
 		const tree = dirtree('./test/test_data',{ attributes: ['mtime', 'ctime']});
-		tree.children.forEach((child) => {
+		tree.childNodes.forEach((child) => {
 			if(child.type == 'file'){
 				expect(child).to.have.property('mtime')
 				expect(child).to.have.property('ctime')

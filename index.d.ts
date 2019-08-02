@@ -18,7 +18,7 @@ declare namespace directoryTree {
         name: string;
         size: number;
         type: "directory" | "file";
-        children?: DirectoryTree[];
+        childNodes?: DirectoryTree[];
         extension?: string;
     }
 
